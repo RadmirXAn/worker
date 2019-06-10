@@ -1,5 +1,5 @@
 var SCRIPTS = [
-"js/drawable/sprite.js",
+"js/drawable/div.js",
 "js/core.js"
 ];
 function onScriptsLoaded(){

@@ -1,18 +1,27 @@
 var core = function(){
 	
-	var sprite_1 = sprite();
-	sprite_1.imageURL("raw/icon.png");
-	sprite_1.width(32);
-	sprite_1.height(32);
-	sprite_1.setX(100);
-	sprite_1.setY(100);
+	var div_back = div();
+	div_back.background = "#D4D4D4";
+	div_back.overflow = "hidden";
+	div_back.width = 800;
+	div_back.height = 600;	
+	div_back.x = 100;
+	div_back.y = 50;
 	
-	var sprite_2 = sprite();
-	sprite_2.imageURL("raw/icon.png");
-	sprite_2.width(32);
-	sprite_2.height(32);
-	sprite_2.setX(120);
-	sprite_2.setY(120);
+	var div_1 = div();
+	div_1.background = "url(raw/icon.png)";
+	div_1.width = 32;
+	div_1.height = 32;
+	div_1.x = 0;
+	div_1.y = 0;
+	div_back.appendChild(div_1);
 	
-	sprite_1.appendChild(sprite_2);
+	var div_2 = div();
+	div_2.background = "url(raw/icon.png)";
+	div_2.width = 32;
+	div_2.height = 32;
+	div_2.x = div_back.height - 16;
+	div_2.y = 120;
+	div_back.appendChild(div_2);
+	
 };
