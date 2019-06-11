@@ -2,12 +2,18 @@ var div = function(){
 	var element = document.createElement('div');
 
 	element.style.position = "absolute";
-	//style
-	/* 
-	background-size: 300px 150px; 
-	*/
 
-	//-overflow (visible | hidden | scroll | auto)
+	//-backgroundPosition: 300px 150px;
+	element.backgroundPosition = function(x, y){
+		element.style.backgroundPosition = x+"px "+y+"px";
+	}
+
+	//-background-size: 300px 150px;
+	element.backgroundSize = function(width, height){
+		element.style.backgroundSize = width+"px "+height+"px";
+	}
+
+	//-overflow: (visible | hidden | scroll | auto)
 	element._overflow = 0;
 	Object.defineProperty(element, 'overflow', {
 	  get: function() { return element._overflow; },
@@ -47,7 +53,7 @@ var div = function(){
 	element._x = 0;
 	Object.defineProperty(element, 'x', {
 	  get: function() { return element._x; },
-	  set: function(value) { element._x = value; element.style.top = value+"px"; },
+	  set: function(value) { element._x = value; element.style.left = value+"px"; },
 	  enumerable: true,
 	  configurable: true
 	});
@@ -56,7 +62,7 @@ var div = function(){
 	element._y = 0;
 	Object.defineProperty(element, 'y', {
 	  get: function() { return element._y; },
-	  set: function(value) { element._y = value; element.style.left = value+"px"; },
+	  set: function(value) { element._y = value; element.style.top = value+"px"; },
 	  enumerable: true,
 	  configurable: true
 	});	
