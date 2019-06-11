@@ -76,41 +76,7 @@ var div = function(){
 	  configurable: true
 	});
 	
-	//-cursor;
-	/*
-	alias
-	all-scroll
-	auto
-	cell
-	context-menu
-	col-resize
-	copy
-	crosshair
-	default
-	e-resize
-	ew-resize
-	help
-	move
-	n-resize
-	ne-resize
-	nw-resize
-	ns-resize
-	no-drop
-	none
-	not-allowed
-	pointer
-	progress
-	row-resize
-	s-resize
-	se-resize
-	sw-resize
-	text
-	vertical-text
-	w-resize   
-	wait
-	zoom-in
-	zoom-out
-	*/
+	//-cursor [ [ <url> [ <x> <y> ]? , ]* [ auto | default | none | context-menu | help | pointer | progress | wait | cell | crosshair | text | vertical-text | alias | copy | move | no-drop | not-allowed | e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out | grab | grabbing ] ]
 	element._cursor = 0;
 	Object.defineProperty(element, 'cursor', {
 	  get: function() { return element._cursor; },

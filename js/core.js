@@ -18,7 +18,8 @@ var core = function(){
 	div_back.x = 100;
 	div_back.y = 50;
 	div_back.onmousemove = updateCoords;
-
+	div_back.cursor = "auto";
+	
 	function move(){
 		div_back.backgroundPosition(div_back_x, div_back_y);
 		div_back_x++;
@@ -35,19 +36,25 @@ var core = function(){
 	div_1.x = 0;
 	div_1.y = 0;
 	div_back.appendChild(div_1);
-	
+
 	var div_2 = div();
+	var div_2_clicked = false;
 	div_2.background = "url(raw/icon.png)";
 	div_2.width = 32;
 	div_2.height = 32;
 	div_2.x = div_back.height - 16;
 	div_2.y = 120;
 	div_2.opacity = 0.5;
+	div_2.cursor = "grab";
+	div_2.onmousedown = function(){div_2_clicked=true; div_2.cursor = "grabbing";};
+	div_2.onmouseup = function(){div_2_clicked=false; div_2.cursor = "grab";};
 	div_back.appendChild(div_2);
 	
 	function moveDiv2(){
-		div_2.x = mouseX-16;
-		div_2.y = mouseY-16;
+		if(div_2_clicked){
+			div_2.x = mouseX-16;
+			div_2.y = mouseY-16;
+		}
 	};
 	
 	addFrameAction(moveDiv2);
