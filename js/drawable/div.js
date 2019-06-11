@@ -67,6 +67,58 @@ var div = function(){
 	  configurable: true
 	});	
 	
+	//-opacity;
+	element._opacity = 0;
+	Object.defineProperty(element, 'opacity', {
+	  get: function() { return element._opacity; },
+	  set: function(value) { element._opacity = value; element.style.opacity = value; },
+	  enumerable: true,
+	  configurable: true
+	});
+	
+	//-cursor;
+	/*
+	alias
+	all-scroll
+	auto
+	cell
+	context-menu
+	col-resize
+	copy
+	crosshair
+	default
+	e-resize
+	ew-resize
+	help
+	move
+	n-resize
+	ne-resize
+	nw-resize
+	ns-resize
+	no-drop
+	none
+	not-allowed
+	pointer
+	progress
+	row-resize
+	s-resize
+	se-resize
+	sw-resize
+	text
+	vertical-text
+	w-resize   
+	wait
+	zoom-in
+	zoom-out
+	*/
+	element._cursor = 0;
+	Object.defineProperty(element, 'cursor', {
+	  get: function() { return element._cursor; },
+	  set: function(value) { element._cursor = value; element.style.cursor = value; },
+	  enumerable: true,
+	  configurable: true
+	});	
+	
 	document.body.appendChild(element);
 	return element;	
 };

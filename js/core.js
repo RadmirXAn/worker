@@ -1,13 +1,3 @@
-var _actionsIndex = 0;
-var _action = [];
-var onEnterFrame = function(){
-	for(_actionsIndex=0; _actionsIndex<_action.length; _actionsIndex++){
-		_action[_actionsIndex]();
-	}
-	setTimeout(onEnterFrame, 17);
-};
-onEnterFrame();
-
 var mouseX = 0;
 var mouseY = 0;
 function updateCoords(event) {
@@ -28,7 +18,7 @@ var core = function(){
 	div_back.x = 100;
 	div_back.y = 50;
 	div_back.onmousemove = updateCoords;
-	
+
 	function move(){
 		div_back.backgroundPosition(div_back_x, div_back_y);
 		div_back_x++;
@@ -36,7 +26,7 @@ var core = function(){
 		div_back_y++;
 		div_back_y%=416;
 	};
-	_action.push(move);
+	addFrameAction(move);
 
 	var div_1 = div();
 	div_1.background = "url(raw/icon.png)";
@@ -52,11 +42,13 @@ var core = function(){
 	div_2.height = 32;
 	div_2.x = div_back.height - 16;
 	div_2.y = 120;
+	div_2.opacity = 0.5;
 	div_back.appendChild(div_2);
 	
 	function moveDiv2(){
 		div_2.x = mouseX-16;
 		div_2.y = mouseY-16;
 	};
-	_action.push(moveDiv2);
+	
+	addFrameAction(moveDiv2);
 };
