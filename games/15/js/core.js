@@ -74,18 +74,39 @@ var cellDown = function(event){
 }
 
 var core = function(){
+	
 	var div_back = div();
 	var div_back_x = 0;
 	var div_back_y = 0;
 	//div_back.background = "#D4D4D4";
-	div_back.background = "url(raw/cells_inactive.png)";
+	div_back.background = "url(raw/back.jpg)";
 	div_back.overflow = "hidden";
-	div_back.width = 220;
-	div_back.height = 220;	
-	div_back.x = (800-220)/2;
-	div_back.y = (600-220)/2;
+	div_back.width = 800;
+	div_back.height = 600;	
+	div_back.x = 0;
+	div_back.y = 0;
 	div_back.onmousemove = updateCoords;
 	div_back.cursor = "auto";
+	
+	function move(){
+		div_back.backgroundPosition(div_back_x, div_back_y);
+		div_back_x++;
+		div_back_x%=416;
+		div_back_y++;
+		div_back_y%=416;
+	};
+	addFrameAction(move);
+	
+	var div_tip = div();
+	div_tip.background = "url(raw/cells_inactive.png)";
+	div_tip.overflow = "hidden";
+	div_tip.width = 220;
+	div_tip.height = 220;	
+	div_tip.x = (800-220)/2;
+	div_tip.y = (600-220)/2;
+	div_tip.onmousemove = updateCoords;
+	div_tip.cursor = "auto";
+	div_back.appendChild(div_tip);
 
 	for(var i = 0 ; i<15; i++){
 		var cell = div();
@@ -100,7 +121,7 @@ var core = function(){
 		cell.backgroundPosition(-dx*55, -dy*55);
 		cell.cursor = "pointer";
 		cell.onmousedown = cellDown;
-		div_back.appendChild(cell);
+		div_tip.appendChild(cell);
 	}
 	
 };
