@@ -29,3 +29,12 @@ var chip = function(back, width, height, index){
 	div_chip.cursor = "pointer";
 	return div_chip;
 };
+//Подсказка
+var tip = function(back, width, height, index){
+	var div_tip = div();
+	div_tip.index = index;
+	div_tip.background = back;
+	div_tip.width = width;
+	div_tip.height = height;
+	return div_tip;	
+}
