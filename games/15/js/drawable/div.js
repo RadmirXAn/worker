@@ -77,13 +77,22 @@ var div = function(){
 	});
 	
 	//-cursor [ [ <url> [ <x> <y> ]? , ]* [ auto | default | none | context-menu | help | pointer | progress | wait | cell | crosshair | text | vertical-text | alias | copy | move | no-drop | not-allowed | e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out | grab | grabbing ] ]
-	element._cursor = 0;
+	element._cursor = "auto";
 	Object.defineProperty(element, 'cursor', {
 	  get: function() { return element._cursor; },
 	  set: function(value) { element._cursor = value; element.style.cursor = value; },
 	  enumerable: true,
 	  configurable: true
 	});	
+	
+	//-pointerEvents: (auto | none)
+	element._pointerEvents = "auto";
+	Object.defineProperty(element, 'pointerEvents', {
+	  get: function() { return element._pointerEvents; },
+	  set: function(value) { element._pointerEvents = value; element.style.pointerEvents = value; },
+	  enumerable: true,
+	  configurable: true
+	});
 	
 	document.body.appendChild(element);
 	return element;	

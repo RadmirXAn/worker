@@ -177,6 +177,7 @@ var createGame = function(chipWidth, chipHeight, activeChips, inactiveChips, gri
 			var _tip = tip(tipsRes[0], chipWidth, chipHeight, index);
 			_tip.x = 0;
 			_tip.y = 0;
+			_tip.pointerEvents = "none";
 			_chip.appendChild(_tip);
 			tips[index]=_tip;
 		}	
