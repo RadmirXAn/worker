@@ -1,5 +1,3 @@
-
-
 var core = function(){
 	//Сцена
 	//var _stage = stage("#D4D4D4", 800, 600);
@@ -22,7 +20,19 @@ var core = function(){
 	var _activeCells = "url(raw/cells.png)";
 	var _inActiveCells = "url(raw/cells_inactive.png)";
 	var _game = createGame(55, 55, _activeCells, _inActiveCells, 220, 220, _map, _tip);
-	_game.x = (800-220)/2;
-	_game.y = (600-220)/2;
+	_game.x = (_stage.width-220)/2;
+	_game.y = (_stage.height-220)/2;
 	_stage.appendChild(_game);
+	
+	function resize(){
+		var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+		_stage.width = width;
+		_stage.height = height;
+		_game.x = (_stage.width-220)/2;
+		_game.y = (_stage.height-220)/2;		
+	};
+	addResizeAction(resize);
+	
+	resizeAction();
 };
